@@ -1,0 +1,11 @@
+.csvButton{
+    margin-top: 1rem;
+}
+
+.csvLink{
+    font-size: 1.5rem;
+    text-decoration: none;
+    background-color: green;
+    color: white;
+    padding: 0.3rem 0.5rem;
+}

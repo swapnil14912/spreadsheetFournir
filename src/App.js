@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Table from './components/Table/Table';
+import "./App.css";
 
-function App() {
+const App = () => {
+
+  const [dimensions, setDimensions] = useState({}); 
+  const handleChange = (e) => {
+    setDimensions({...dimensions, [e.target.name]:e.target.value});
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <div className='RowCol'>
+        <div>
+          <label>Rows : </label>
+          <input type="number" name='rows' placeholder='rows' onChange={handleChange}/>
+        </div>
+        <div>
+          <label>Columns : </label>
+          <input type="number" name='cols' placeholder='cols' onChange={handleChange}/>
+        </div>
+      </div>
+      <Table x={parseInt(dimensions.rows)} y={parseInt(dimensions.cols)} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
